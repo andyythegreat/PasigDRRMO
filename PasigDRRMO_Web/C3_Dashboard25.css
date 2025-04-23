@@ -1,0 +1,1519 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --white-color: #fff;
+  --blue-color: #4070f4;
+  --grey-color: #707070;
+  --grey-color-light: #aaa;
+}
+body {
+  background-color: #e7f2fd;
+  transition: all 0.5s ease;
+}
+
+
+/* navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-shadow: 0 0 2px var(--grey-color-light);
+}
+.logo_item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--blue-color);
+}
+.navbar img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.search_bar {
+  height: 47px;
+  max-width: 430px;
+  width: 100%;
+}
+.search_bar input {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color-light);
+  padding: 0 20px;
+}
+.navbar_content {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.navbar_content i {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--grey-color);
+}
+
+/* sidebar */
+.sidebar {
+  background-color: var(--white-color);
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 80px 20px;
+  z-index: 100;
+  overflow-y: scroll;
+  box-shadow: 0 0 1px var(--grey-color-light);
+  transition: all 0.5s ease;
+}
+.sidebar.close {
+  padding: 60px 0;
+  width: 80px;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.menu_content {
+  position: relative;
+}
+.menu_title {
+  margin: 15px 0;
+  margin-left: -8px;
+  padding: 0 20px;
+  font-size: 18px;
+}
+.sidebar.close .menu_title {
+  padding: 6px 30px;
+}
+.menu_title::before {
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.menu_fire::before {
+  content: "Report a Fire";
+}
+.menu_dispatch::before {
+  content: "Dispatch";
+}
+.menu_incident::before {
+  content: "Incident Report";
+}
+.menu_maintenance::before {
+  content: "Information";
+}
+.menu_data::before {
+  content: "Activity & Analytics";
+}
+
+.sidebar.close .menu_title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 18px;
+  border-radius: 12px;
+  background: var(--grey-color-light);
+}
+.menu_items {
+  padding: 0;
+  list-style: none;
+}
+.navlink_icon {
+  position: relative;
+  font-size: 22px;
+  min-width: 50px;
+  line-height: 30px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+  margin-left: -13px;
+  margin-top: 10px;
+}
+.navlink_icon::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 100px);
+  left: -20px;
+}
+.navlink_icon:hover {
+  background: var(--blue-color);
+}
+.sidebar .nav_link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.sidebar.close .navlink {
+  display: none;
+}
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+.sidebar.close .nav_link:hover {
+  background: var(--white-color);
+}
+.submenu_item {
+  cursor: pointer;
+}
+.submenu {
+  display: none;
+}
+.submenu_item .arrow-left {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin-right: auto;
+}
+.sidebar.close .submenu {
+  display: none;
+}
+.show_submenu ~ .submenu {
+  display: block;
+}
+.show_submenu .arrow-left {
+  transform: rotate(90deg);
+}
+.submenu .sublink {
+  padding: 15px 15px 15px 52px;
+}
+.bottom_content {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 260px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  justify-content: space-around;
+  padding: 18px 0;
+  text-align: center;
+  width: 100%;
+  color: var(--grey-color);
+  border-top: 1px solid var(--grey-color-light);
+  background-color: var(--white-color);
+}
+.bottom i {
+  font-size: 20px;
+}
+.bottom span {
+  font-size: 18px;
+}
+.sidebar.close .bottom_content {
+  width: 50px;
+  left: 15px;
+}
+.sidebar.close .bottom span {
+  display: none;
+}
+.sidebar.hoverable .collapse_sidebar {
+  display: none;
+}
+#sidebarOpen {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #sidebarOpen {
+    font-size: 25px;
+    display: block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--grey-color);
+  }
+  .sidebar.close {
+    left: -100%;
+  }
+  .search_bar {
+    display: none;
+  }
+  .sidebar.close .bottom_content {
+    left: -100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.menu_dashboard {
+  background-color: #e0e9ff; 
+  padding: 10px;           
+  border-radius: 8px;       
+  transition: background-color 0.3s ease; 
+  margin-top: 20px;       
+  text-align: center;  
+}
+
+.menu_dashboard:hover {
+  background-color: #b3c7ff; 
+}
+
+.menu_dashboard ul {
+  list-style-type: none; 
+  padding: 0;           
+  margin: 0;             
+}
+
+.menu_dashboard a {
+  text-decoration: none;  
+  font-size: 18px;   
+  font-weight: 600;    
+  color: #333;          
+}
+
+.menu_dashboard a:hover {
+  color: #333;            
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS for sidebar navigation icons */
+.navlink_icon img {
+    width: 20px;
+    height: 20px; 
+  }
+  
+  .menu_items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu_items .nav_link {
+    font-size: 16px; 
+  }
+  
+.logout_icon {
+    width: 20px; 
+    height: 20px; 
+  }
+
+.nav_link.active,
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE HOME SECTION */
+.home-section {
+  position: absolute;
+  top: 66px; 
+  left: 261px; 
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+  background-color: #f3f9ff;
+  padding: 20px;
+  font-family: 'Poppins'; 
+}
+
+.home-section h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+.home-section h2 {
+    font-size: 20px;
+    font-weight: normal; 
+    margin-top: -25px;
+    align-self: flex-start;
+  }
+
+
+
+
+
+
+
+
+
+/* CSS FOR DASHBOARD CONTAINER */
+.dashboard-container {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-left: 20px; 
+}
+
+.dashboard-icon {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px; 
+}
+
+
+
+
+
+
+
+
+/* CSS FOR FIRE ALERTS CONTAINER */
+.fire-alerts-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 70%;          
+    height: 400px;          
+}
+
+.fire-alerts-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.fire-alerts-header h3 {
+    font-size: 25px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+}
+
+.see-all-btn {
+    background-color: #062B82;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.see-all-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+/* ONGOING FIRE ALERTS SECTION */
+.fire-alerts-content {
+  margin-top: 15px;
+  font-size: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.fire-alert-info-container {
+  background-color: #dde8f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.fire-alert-button {
+  width: 100%;
+  background-color: #dde8f1;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.fire-alert-button:hover {
+  background-color: #c2d4db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fire-alert-info-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr; 
+  column-gap: 20px;
+  row-gap: 5px;
+}
+
+.fire-alert-info-left,
+.fire-alert-info-right {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.fire-alert-info-left {
+  text-align: left;
+}
+
+.fire-alert-info-right {
+  text-align: right;
+}
+
+.fire-alert-info-left p strong {
+  font-weight: 700;
+  color: #333;
+}
+
+.fire-alert-info-right p strong {
+  font-weight: 700;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR REPORTS SECTION (Ongoing Fire Alerts, Barangay and Mobile Reports Containers) */
+.reports-section {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.right-reports-container {
+    width: 30%; 
+    margin-top: 30px; 
+    margin-right: 20px;
+}
+
+.barangay-reports-container,
+.mobile-reports-container {
+    width: 100%;
+    height: 49%;
+    position: relative; 
+    background: linear-gradient(100deg, #f8ffff 0%, #004aad 100%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.barangay-reports-header,
+.mobile-reports-header {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #333;
+}
+
+.report-number {
+    font-size: 70px; 
+    font-weight: bold; 
+    color: black; 
+    margin-left: 100px;
+}
+
+.report-image {
+    width: 150px; 
+    height: auto;
+    position: absolute;
+    bottom: 15px; 
+    right: 15px; 
+    opacity: 0.3; 
+}
+
+.reports-link {
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reports-link:hover .barangay-reports-container,
+.reports-link:hover .mobile-reports-container {
+    transform: translateY(-5px); 
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE ONGOING POP UP ALERT */
+.ongoing-fire-alert-popup {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.ongoing-fire-alert-content-popup {
+  background-color: #fff;
+  margin: 15% auto; 
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px; 
+  height: auto; 
+  max-height: 80%; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; 
+  gap: 10px; 
+}
+
+.ongoing-fire-alert-popup-button {
+  width: 45%;
+  background-color: #c6e0f7; 
+  color: #333; 
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 10px 5px; 
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  flex: 1; 
+  text-align: center; 
+  transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease; 
+}
+
+.ongoing-fire-alert-popup-button:hover {
+  background-color: #aacbf0; 
+}
+
+.ongoing-fire-alert-popup-button.active {
+  background-color: #062b82; 
+  color: white; 
+  font-weight: bold; 
+}
+
+.see-all-container {
+  display: none; 
+  text-align: right;
+  margin-top: 10px;
+}
+
+.see-all-link {
+  background-color: #062B82;
+  color: white;
+  border: none;
+  padding: 8px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 17%;
+  text-align: center;
+  transition: background-color 0.3s;
+  float: right;
+}
+
+.see-all-link:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE ONGOING POP UP ALERT TABLE */
+.table-container-popup {
+  max-height: 270px; 
+  overflow-y: auto;
+  margin-top: 5px;
+ 
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table th {
+  padding: 10px;
+  text-align: center;
+  font-weight: normal;
+  background-color: #3A61BB;
+  color: white;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+  font-weight: normal;
+  border: 1px solid white;
+  background-color: #D9D9D9;
+  word-wrap: break-word; 
+}
+
+table th {
+  background-color: #3A61BB;
+  color: white;
+}
+
+table td {
+  border: 1px solid white;
+  background-color: #D9D9D9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS CODE FOR THE POPUP CANCEL FIELD */
+.cancel-info-container {
+  margin-top: 10px;
+}
+
+.cancel-info-container label {
+  display: block; 
+  margin-bottom: 5px; 
+}
+
+textarea {
+  width: 100%; 
+  height: 100px;
+  padding: 10px; 
+  border: 1px solid rgba(204, 204, 204, 0.8);
+}
+
+.cancel-button-container {
+  display: flex; 
+  justify-content: flex-end; 
+  gap: 10px
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+
+
+
+
+/* CSS CODE FOR THE BRGY Responding */
+.fire-details {
+  color: #062B82;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR FIRE TRUCK STATUS TABLE AND EVENT LOG TO MAKE IT SIDE BY SIDE */
+.combined-container {
+    display: flex;                
+    justify-content: space-between; 
+}
+
+.event-log-container, .fire-truck-status-container {
+    flex: 1;                        
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR EVENT LOG CONTAINER */
+.event-log-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    padding: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    width: 50%;          
+    height: 400px;         
+}
+
+.event-log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.event-log-header h3 {
+    font-size: 25px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+/* CSS FOR EVENT LOG INFORMATION */
+.event-log-content {
+    margin-top: 15px;
+    font-size: 16px;
+    max-height: 300px;      
+    overflow-y: auto;        
+    padding: 10px;              
+}
+
+.event-log-info-container {
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+}
+
+.event-log-button {
+  width: 100%; 
+  background-color: #dde8f1; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 10px; 
+  cursor: pointer; 
+  display: flex; 
+  flex-direction: column; 
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.event-log-button:hover {
+  background-color: #c2d4db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.event-log-image {
+    width: 6%; 
+    height: 6%;
+}
+
+.event-log-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-log-info p {
+    margin: 0;
+    width: 100%; 
+    text-align: left;
+    margin-left: 10px;
+}
+
+.event-log-entry {
+  margin-bottom: 10px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR BARANGAY REPORT EVENT LOG POPUP */
+.barangay-event-log-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.barangay-event-log-popup-content {
+  background-color: #fff; 
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+  width: 40%; 
+  max-width: 100%; 
+  position: relative;
+}
+
+.barangay-event-log-popup-header {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start; 
+  margin-bottom: 3px;
+}
+
+.barangay-popup-icon {
+  width: 40px; 
+  height: 40px; 
+  margin-right: 10px; 
+  margin-top: 15px; 
+  object-fit: contain; 
+}
+
+.barangay-event-log-popup-header h2 {
+  margin-top: 20px; 
+  font-size: 23px; 
+  color: #333; 
+}
+
+.barangay-popup-line {
+  margin-bottom: 15px;
+}
+
+.barangay-popup-body {
+  max-height: 300px; 
+  overflow-y: auto; 
+  padding-right: 10px;
+}
+
+
+.barangay-popup-body p {
+  margin: 5px 0px; 
+  font-size: 16px;
+  color: #333; 
+}
+
+#popupRequest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR BARANGAY REPORT EVENT LOG POPUP (BUTTON: OK AND VIEW) */
+.barangay-popup-button-container {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.barangay-popup-close, .barangay-view-link {
+  margin-left: 10px; 
+  width: 16%; 
+}
+
+.barangay-popup-close {
+  margin-top: 15px; 
+  padding: 10px 0; 
+  background-color: #062B82;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+  font-size: 16px;
+  text-align: center; 
+}
+
+.barangay-popup-close:hover {
+  background-color: #0056b3; 
+}
+
+.barangay-view-link {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 15px; 
+  padding: 10px 0; 
+  background-color: #062B82;
+  color: white; 
+  text-decoration: none; 
+  border-radius: 5px; 
+}
+
+.barangay-view-link:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR POSTED A FIRE ALERT EVENT LOG POPUP */
+.alert-event-log-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.alert-event-log-popup-content {
+  background-color: #fff; 
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+  width: 40%; 
+  max-width: 100%; 
+  position: relative;
+}
+
+.alert-event-log-popup-header {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start; 
+  margin-bottom: 3px;
+}
+
+.alert-popup-icon {
+  width: 40px; 
+  height: 40px; 
+  margin-right: 10px; 
+  margin-top: 15px; 
+  object-fit: contain; 
+}
+
+.alert-event-log-popup-header h2 {
+  margin-top: 20px; 
+  font-size: 23px; 
+  color: #333; 
+}
+
+.alert-popup-line {
+  margin-bottom: 15px;
+}
+
+.alert-popup-body {
+  max-height: 300px; 
+  overflow-y: auto; 
+  padding-right: 10px;
+}
+
+.alert-popup-body p {
+  margin: 5px 0px; 
+  font-size: 16px;
+  color: #333; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR BARANGAY REPORT EVENT LOG POPUP (BUTTON: ACCEPT AND DECLINE) */
+.alert-popup-button-container {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.fire-alert-popup-accept, .fire-alert-popup-decline {
+  margin-left: 10px; 
+  width: 16%; 
+}
+
+.fire-alert-popup-accept {
+  margin-top: 15px; 
+  padding: 10px 0; 
+  background-color: #062B82;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+  font-size: 16px;
+  text-align: center; 
+}
+
+.fire-alert-popup-accept:hover {
+  background-color: #0056b3; 
+}
+
+.fire-alert-popup-decline {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 15px; 
+  font-size: 16px;
+  padding: 10px 0; 
+  background-color: #062B82;
+  color: white; 
+  text-decoration: none; 
+  border: none;
+  border-radius: 5px; 
+}
+
+.fire-alert-popup-decline:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR FIRE TRUCK STATUS CONTAINER */
+.fire-truck-status-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    padding: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    width: 100%;          
+    height: 400px;         
+}
+
+.fire-truck-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.fire-truck-status-header h3 {
+    font-size: 25px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR FIRE TRUCK STATUS TABLE */
+.fire-truck-status-table {
+    width: 98%; 
+    border-collapse: collapse; 
+    margin-top: 10px; 
+}
+
+.fire-truck-status-table th {
+    padding: 10px; 
+    text-align: center; 
+    font-weight: normal;
+}
+
+.fire-truck-status-table td {
+    border: 1px solid white;
+    background-color: #D9D9D9;
+    text-align: center; 
+    padding: 8px; 
+    margin: 5px; 
+}
+
+.fire-truck-status-table th {
+    background-color: #3A61BB;
+    color: white;
+}
+
+
+/* CSS FOR THE SCROLLABLE TABLE */
+.fire-truck-status-table-container {
+    max-height: 300px;   
+    overflow-y: auto;    
+    margin-top: 20px;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE NAV BUTTON */
+.btn {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.btn img {
+  width: 20px;
+  height: 20px; 
+  vertical-align: middle; 
+  margin-top: -7px;
+  margin-right: -12px;
+}
+
+.btn:hover {
+  background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE NOTIFICATION */
+.navbar_content .btn img {
+  width: 25px; 
+  height: 25px; 
+}
+
+.notif-count {
+  position: absolute;
+  top: -10px;
+  margin-left: 5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.navbar_content {
+  position: relative;
+}
+
+.notification-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f9f9f9;
+}
+
+.notification-item p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.notification-item:hover {
+  background-color: #f0f0f0;
+}
+
+#notificationDiv {
+  display: none;
+  position: absolute;
+  top: calc(100% + 3px); 
+  right: 50px; 
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 999;
+  padding: 10px;
+  width: 300px; 
+  max-height: 500px; 
+  overflow-y: auto; 
+}
+
+#notificationDiv h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  #notificationDiv {
+    width: 90%; 
+    max-height: 300px; 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE TIME AND WEATHER FORECAST */
+#weather {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+#weather .weather-icon {
+  font-size: 27px; 
+  vertical-align: middle;
+  margin-right: 8px; 
+}
+
+#weather .weather-info {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#clock {
+  font-size: 2em;
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* CSS FOR THE BRGY LOGO HREF - (PROFILE AND SETTINGS) */
+  .logo-container {
+    position: relative; 
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 60px; 
+    left: -137px; 
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .brgy-profile-icon-container {
+    display: flex; 
+    align-items: center;
+    padding: 5px 10px;
+  }
+
+
+
+
+
+
+

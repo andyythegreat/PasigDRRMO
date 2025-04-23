@@ -1,0 +1,702 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --white-color: #fff;
+  --blue-color: #4070f4;
+  --grey-color: #707070;
+  --grey-color-light: #aaa;
+}
+body {
+  background-color: #e7f2fd;
+  transition: all 0.5s ease;
+}
+
+
+/* navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-shadow: 0 0 2px var(--grey-color-light);
+}
+.logo_item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--blue-color);
+}
+.navbar img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.search_bar {
+  height: 47px;
+  max-width: 430px;
+  width: 100%;
+}
+.search_bar input {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color-light);
+  padding: 0 20px;
+}
+.navbar_content {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.navbar_content i {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--grey-color);
+}
+
+/* sidebar */
+.sidebar {
+  background-color: var(--white-color);
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 80px 20px;
+  z-index: 100;
+  overflow-y: scroll;
+  box-shadow: 0 0 1px var(--grey-color-light);
+  transition: all 0.5s ease;
+}
+.sidebar.close {
+  padding: 60px 0;
+  width: 80px;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.menu_content {
+  position: relative;
+}
+.menu_title {
+  margin: 15px 0;
+  margin-left: -8px;
+  padding: 0 20px;
+  font-size: 18px;
+}
+.sidebar.close .menu_title {
+  padding: 6px 30px;
+}
+.menu_title::before {
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.menu_fire::before {
+  content: "Report a Fire";
+}
+.menu_dispatch::before {
+  content: "Dispatch";
+}
+.menu_incident::before {
+  content: "Incident Report";
+}
+.menu_maintenance::before {
+  content: "Information";
+}
+.menu_data::before {
+  content: "Activity & Analytics";
+}
+
+.sidebar.close .menu_title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 18px;
+  border-radius: 12px;
+  background: var(--grey-color-light);
+}
+.menu_items {
+  padding: 0;
+  list-style: none;
+}
+.navlink_icon {
+  position: relative;
+  font-size: 22px;
+  min-width: 50px;
+  line-height: 30px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+  margin-left: -13px;
+  margin-top: 10px;
+}
+.navlink_icon::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 100px);
+  left: -20px;
+}
+.navlink_icon:hover {
+  background: var(--blue-color);
+}
+.sidebar .nav_link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.sidebar.close .navlink {
+  display: none;
+}
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+.sidebar.close .nav_link:hover {
+  background: var(--white-color);
+}
+.submenu_item {
+  cursor: pointer;
+}
+.submenu {
+  display: none;
+}
+.submenu_item .arrow-left {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin-right: auto;
+}
+.sidebar.close .submenu {
+  display: none;
+}
+.show_submenu ~ .submenu {
+  display: block;
+}
+.show_submenu .arrow-left {
+  transform: rotate(90deg);
+}
+.submenu .sublink {
+  padding: 15px 15px 15px 52px;
+}
+.bottom_content {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 260px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  justify-content: space-around;
+  padding: 18px 0;
+  text-align: center;
+  width: 100%;
+  color: var(--grey-color);
+  border-top: 1px solid var(--grey-color-light);
+  background-color: var(--white-color);
+}
+.bottom i {
+  font-size: 20px;
+}
+.bottom span {
+  font-size: 18px;
+}
+.sidebar.close .bottom_content {
+  width: 50px;
+  left: 15px;
+}
+.sidebar.close .bottom span {
+  display: none;
+}
+.sidebar.hoverable .collapse_sidebar {
+  display: none;
+}
+#sidebarOpen {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #sidebarOpen {
+    font-size: 25px;
+    display: block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--grey-color);
+  }
+  .sidebar.close {
+    left: -100%;
+  }
+  .search_bar {
+    display: none;
+  }
+  .sidebar.close .bottom_content {
+    left: -100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.menu_dashboard {
+  background-color: #e0e9ff; 
+  padding: 10px;           
+  border-radius: 8px;       
+  transition: background-color 0.3s ease; 
+  margin-top: 20px;       
+  text-align: center;  
+}
+
+.menu_dashboard:hover {
+  background-color: #b3c7ff; 
+}
+
+.menu_dashboard ul {
+  list-style-type: none; 
+  padding: 0;           
+  margin: 0;             
+}
+
+.menu_dashboard a {
+  text-decoration: none;  
+  font-size: 18px;   
+  font-weight: 600;    
+  color: #333;          
+}
+
+.menu_dashboard a:hover {
+  color: #333;            
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS for sidebar navigation icons */
+.navlink_icon img {
+    width: 20px;
+    height: 20px; 
+  }
+  
+  .menu_items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu_items .nav_link {
+    font-size: 16px; 
+  }
+  
+.logout_icon {
+    width: 20px; 
+    height: 20px; 
+  }
+
+.nav_link.active,
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+
+
+
+
+
+
+
+.responsive-div {
+    width: 50%; /* Occupy full width */
+    max-width: 100%; /* Set maximum width */
+    margin: 0 auto; /* Center horizontally */
+    background-color: #f0f0f0; /* Background color */
+    padding: 20px; /* Add padding */
+    box-sizing: border-box; /* Include padding and border in total width */
+    border: 1px solid #ccc; /* Add border */
+    margin-top: 150px;
+    position: absolute;
+}
+
+/* Center the text */
+.responsive-div h2 {
+    text-align: center; /* Center the text */
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE NAV BUTTON */
+.btn {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+/* Styling the image inside the button */
+.btn img {
+  width: 20px; /* Adjust the width of the image as needed */
+  height: 20px; /* Adjust the height of the image as needed */
+  vertical-align: middle; /* Aligning the image vertically */
+  margin-top: -7px;
+  margin-right: -12px;
+}
+
+.btn:hover {
+  background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE HOME SECTION */
+.home-section {
+  position: absolute;
+  top: 66px; 
+  left: 261px; 
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+  background-color: #f3f9ff;
+  padding: 20px;
+  font-family: 'Poppins'; 
+}
+
+.home-section h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #333;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.home-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+  align-self: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE HOME CONTAINER */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  margin: 0 auto; 
+  padding: 20px;
+  align-items: center;
+  margin-top: -20px;
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR BACK HREF */
+.home-container1 {
+  display: flex;               
+  justify-content: space-between; 
+  align-items: center;          
+  width: 98%;
+  margin: 0 auto; 
+  padding: 20px;
+  margin-top: -20px; 
+}
+
+.x-account {
+  margin-left: auto; 
+}
+
+.x-link {
+  display: inline-block; 
+  padding: 10px 20px; 
+  background-color: #062B82; 
+  color: #fff; 
+  text-decoration: none; 
+  font-weight: bold;
+}
+
+.x-link:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE TABLE */
+.table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+  }
+  
+  table th {
+    padding: 10px;
+    text-align: center;
+    font-weight: normal;
+    background-color: #3A61BB;
+    color: white;
+  }
+  
+  table td {
+    padding: 10px;
+    text-align: center;
+    font-weight: normal;
+    border: 1px solid white;
+    background-color: #D9D9D9;
+    word-wrap: break-word; 
+  }
+  
+  table th {
+    background-color: #3A61BB;
+    color: white;
+  }
+  
+  table td {
+    border: 1px solid white;
+    background-color: #D9D9D9;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+/* CSS FOR THE TIME AND WEATHER FORECAST */
+#weather {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  display: inline-block;
+  text-align: left;
+}
+
+#weather .weather-icon {
+  font-size: 27px; 
+  vertical-align: middle;
+  margin-right: 8px; 
+}
+
+#weather .weather-info {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#clock {
+  font-size: 2em;
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  /* CSS FOR THE BRGY LOGO HREF - (PROFILE AND SETTINGS) */
+  .logo-container {
+    position: relative; 
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 60px; 
+    left: -137px; 
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .brgy-profile-icon-container {
+    display: flex; 
+    align-items: center;
+    padding: 5px 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE VIEW AND ARCHIVE BUTTON */
+.btn-container {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.accept-button {
+  width: 50px; 
+  height: 40px;
+  background-color: #00bf63; 
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.decline-button {
+  width: 50px; 
+  height: 40px;
+  background-color: #ff0000; 
+  color: #fff; 
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+button img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  filter: brightness(0) invert(1); 
+}
+
+.btn img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  filter: brightness(0) invert(0); 
+}
+
+.accept-button:hover {
+  background-color: #008243; 
+}
+
+.decline-button:hover {
+  background-color: #cd0000; 
+}
+
+.decline-button {
+  margin-left: 8px;
+}
+
+
+
