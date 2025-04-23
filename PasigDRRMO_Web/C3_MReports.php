@@ -530,7 +530,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['accept'])) {
                 echo "<br>";
         
                 // Google Maps JavaScript API
-                echo "<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD8so7_1qYa8k9rvhJ57wkfGtDhLnN5otM&libraries=places'></script>";
+                echo "<script></script>";
         
                 echo "<script>
                     
