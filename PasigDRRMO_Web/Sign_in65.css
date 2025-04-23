@@ -1,0 +1,391 @@
+body {
+    position: relative;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin-top: 10%;
+}
+
+.sign-in-form {
+    display: flex;
+    background-color: #0E2F66;
+    color: white;
+}
+
+.logo {
+    width: 350px; 
+    height: 500px; 
+    padding: 25px;
+    margin-right: 40px; 
+    background-color: white;
+}
+
+.logo-image {
+    width: 100%;
+    height: auto;
+    margin-top: 75px;
+    margin-left: 15px;
+}
+
+.sign-in-form h2 {
+    text-align: left;
+    font-size: 35px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+}
+
+.form-content {
+    flex: 1; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.form-group img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    background: transparent;
+    color: white;
+    margin-right: 40px;
+    font-size: 16px;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #dbdbdb;
+}
+
+.sign-in-button {
+    width: 93%;
+    padding: 14px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.sign-in-button:hover {
+    background-color: #bcdcff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR FORGOT PASSWORD, VERIFICATION CODE, AND RESET PASSWORD POPUP */
+#popupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.forgot-password a {
+    font-size: 15px;
+    color: #dbdbdb;
+    text-decoration: none;
+    align-self: flex-end;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#forgotPasswordPopup {
+    position: relative;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    background: #0E2F66;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 450px;
+    text-align: center;
+}
+
+#verifyCodePopup {
+    position: relative;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    background: #0E2F66;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px;
+    text-align: center;
+}
+
+#resetPasswordPopup {
+    position: relative;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    background: #0E2F66;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px;
+    text-align: center;
+}
+
+#forgotPasswordPopup h2,
+#verifyCodePopup h2,
+#resetPasswordPopup h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+#forgotPasswordPopup input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px -20px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+}
+
+#verifyCodePopup input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px -20px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+}
+
+#forgotPasswordPopup button,
+#verifyCodePopup button,
+#resetPasswordPopup button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#forgotPasswordPopup button:hover,
+#verifyCodePopup button:hover,
+#resetPasswordPopup button:hover {
+    background-color: #bcdcff;
+}
+
+#forgotPasswordPopup p,
+#verifyCodePopup p,
+#resetPasswordPopup p {
+    font-size: 15px;
+    color: #b3b3b3;
+    margin-top: 30px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+#forgotPasswordPopup .x-button,
+#verifyCodePopup .x-button,
+#resetPasswordPopup .x-button {
+    position: absolute;
+    top: 5px;
+    right: 22px;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+#forgotPasswordPopup .x-button:hover,
+#verifyCodePopup .x-button:hover,
+#resetPasswordPopup .x-button:hover {
+    background: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR INPUT TYPE PASSWORD AND EYE ICON FOR SHOW AND HIDE PASSWORD */
+.password-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.password-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+}
+
+.password-group input::placeholder {
+    color: #dbdbdb;
+}
+
+.eye_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.eye-button {
+    background-color: #0E2F66; 
+    border: none;
+    cursor: pointer;
+    padding: 5px; 
+    margin-right: 40px;
+    position: absolute;
+    right: 0;
+}
+
+.eye {
+    width: 20px;
+    height: auto;
+    filter: invert(1);
+}
+
+.form-group img {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    background: transparent;
+    color: white;
+    margin-right: 40px;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS FOR THE IMAGE AT THE BOTTOM */
+.main-bottom-container {
+    position: relative;
+}
+
+.bottom-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10; 
+    margin-top: -30px;
+}
+
+.bottom-image img {
+    max-width: 150px; 
+    height: auto;
+}
+
