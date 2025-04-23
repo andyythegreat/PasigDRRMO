@@ -469,7 +469,7 @@ if ($result->num_rows > 0) {
         echo "</div>";
 
         // Google Maps API Key
-        echo "<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD8so7_1qYa8k9rvhJ57wkfGtDhLnN5otM&libraries=places'></script>";
+        echo "<script></script>";
 echo "<script>
     function initMap" . $row['ID'] . "() {
         var icon = {
