@@ -561,7 +561,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <!-- Google Maps JavaScript API and Places library -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8so7_1qYa8k9rvhJ57wkfGtDhLnN5otM&libraries=places"></script>
+    <script></script>
 
     <script>
     
